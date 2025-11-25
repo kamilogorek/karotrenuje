@@ -31,6 +31,8 @@
         }
         body {
           @apply bg-[#f6f3f0] text-[#241e1c] leading-relaxed min-h-screen;
+          @apply text-balance;
+          @apply sm:text-pretty;
         }
         h1,
         h2,
@@ -84,9 +86,6 @@
                 from: { opacity: 0, transform: "scale(0.95)" },
                 to: { opacity: 1, transform: "scale(1)" },
               },
-            },
-            animation: {
-              "scale-in": "scaleIn 0.5s ease-out forwards",
             },
           },
         },
@@ -178,9 +177,20 @@
 
     <section
       id="hero"
-      class="relative flex items-center bg-card overflow-hidden py-40 min-h-screen"
+      class="relative flex items-center bg-card overflow-hidden py-24 md:py-40  min-h-screen"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="dziekuje" class="p-4 mb-8 text-lg border border-border rounded-xl bg-primary text-primary-foreground opacity-80 shadow-elegant hidden">
+          <h2 class="text-xl">Dziękujemy za Twoje zgłoszenie!</h2>
+          <p class="text-sm">Formularz został pomyślnie wysłany. Skontaktuję się z Tobą tak szybko, jak to możliwe, aby omówić szczegóły współpracy i kolejny krok w drodze do Twojego celu.</p>
+        </div>
+
+        <script>
+          if (window.location.search.includes('dziekuje')) {
+            document.querySelector('#dziekuje')?.classList.remove('hidden')
+          }
+        </script>
+
         <div class="grid gap-8 items-center lg:grid-cols-2 lg:gap-12">
           <div>
             <h1 class="text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
@@ -190,11 +200,11 @@
             <p class="text-xl text-foreground/90 mb-8 md:text-2xl">
               Indywidualna opieka w kameralnym studio w Krakowie
             </p>
-            <p class="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Szukasz profesjonalnego wsparcia w pracy nad sylwetką, kondycją
+            <p class="text-lg text-foreground/90 mb-10 leading-relaxed">
+              Szukasz <span class="font-semibold">profesjonalnego wsparcia</span> w pracy nad sylwetką, kondycją
               lub powrotem do formy? Zapraszam Cię na treningi do kameralnego
               studia - miejsca stworzonego z myślą o osobach, które cenią
-              jakość, prywatność i indywidualne podejście.
+              <span class="font-semibold">jakość</span>, prywatność i <span class="font-semibold">indywidualne podejście</span>.
             </p>
             <div class="flex flex-col gap-4 sm:flex-row">
               <a
@@ -240,7 +250,7 @@
       </div>
     </section>
 
-    <section id="oferta" class="py-16 md:py-24 bg-background">
+    <section id="oferta" class="py-16 md:py-24 bg-background scroll-mt-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
           <h2 class="text-4xl md:text-5xl text-center mb-6">Co oferuję?</h2>
@@ -254,7 +264,7 @@
 
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2 mb-16">
             <div
-              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -284,7 +294,7 @@
             </div>
 
             <div
-              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -312,7 +322,7 @@
             </div>
 
             <div
-              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -340,7 +350,7 @@
             </div>
 
             <div
-              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -366,37 +376,9 @@
                 </p>
               </div>
             </div>
-
-            <!--<div
-              class="flex items-start gap-4 p-6 rounded-xl bg-card shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
-            >
-              <div
-                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary"
-              >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold mb-2">Szczere podejście</h3>
-                <p class="text-muted-foreground">
-                  Bez fałszywych obietnic i gotowych schematów
-                </p>
-              </div>
-            </div>-->
           </div>
 
-          <div class="bg-card p-12 rounded-xl shadow-soft">
+          <div class="bg-card p-4 sm:p-12 rounded-xl shadow-soft">
             <h3 class="text-2xl font-semibold mb-8 flex items-center gap-3">
               <svg
                 class="w-8 h-8 text-primary"
@@ -467,7 +449,7 @@
                   />
                 </svg>
                 <span
-                  >Potrzebują indywidualnego podejścia i stałego wsparcia</span
+                  >Potrzebują <span class="font-semibold">indywidualnego podejścia</span> i stałego wsparcia</span
                 >
               </li>
               <li class="flex items-start gap-3 mb-4 text-lg">
@@ -484,7 +466,7 @@
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span>Oczekują wysokich standardów i profesjonalizmu</span>
+                <span>Oczekują <span class="font-semibold">wysokich standardów</span> i profesjonalizmu</span>
               </li>
               <li class="flex items-start gap-3 mb-4 text-lg">
                 <svg
@@ -511,13 +493,13 @@
       </div>
     </section>
 
-    <section id="o-mnie" class="py-16 md:py-24 bg-card">
+    <section id="o-mnie" class="py-16 md:py-24 bg-card scroll-mt-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-5xl mx-auto">
           <h2 class="text-4xl md:text-5xl text-center mb-6">O mnie</h2>
 
           <div class="grid gap-8 mb-12 lg:grid-cols-[300px_1fr] lg:gap-8">
-            <div class="animate-scale-in">
+            <div>
               <div
                 class="relative mx-auto w-full max-w-[300px] aspect-[9/16] rounded-xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] bg-muted lg:mx-0"
               >
@@ -529,16 +511,13 @@
                   <source src="./assets/video.mp4" type="video/mp4" />
                 </video>
                 <script>
-                  const el = document.querySelector('video');
-                  if (el) {
-                    el.addEventListener('click', () => {
-                      if (el.paused) {
-                        el.play()
-                      } else {
-                        el.pause()
-                      }
-                    })
-                  }
+                  document.querySelector('video')?.addEventListener('click', () => {
+                    if (el.paused) {
+                      el.play()
+                    } else {
+                      el.pause()
+                    }
+                  })
                 </script>
               </div>
             </div>
@@ -547,15 +526,15 @@
               <p class="text-lg leading-relaxed mb-6">
                 Mam na imię Karolina i jako certyfikowana trenerka personalna,
                 od 2018 roku nieprzerwanie pomagam swoim podopiecznym osiągać
-                realne i trwałe efekty. Wierzę, że skuteczny trening to coś
+                <span class="font-semibold">realne i trwałe efekty</span>. Wierzę, że skuteczny trening to coś
                 więcej niż tylko ćwiczenia - to relacja, zaufanie i wspólna
                 droga do celu.
               </p>
 
               <p class="text-lg leading-relaxed mb-6">
-                Jako trenerka łączę wiedzę i doświadczenie z otwartością i
+                Jako trenerka łączę wiedzę i <span class="font-semibold">doświadczenie</span> z otwartością i
                 empatią, dzięki czemu potrafię stworzyć atmosferę, w której
-                każdy czuje się swobodnie i zmotywowany do działania.
+                każdy czuje się swobodnie i <span class="font-semibold">zmotywowany do działania</span>.
                 Niezależnie od tego, z jakiego punktu startujesz - znajdę
                 sposób, by dopasować trening do Ciebie, a nie Ciebie do
                 schematu.
@@ -565,7 +544,7 @@
                 Mam łatwość nawiązywania relacji i potrafię znaleźć wspólny
                 język z każdym - niezależnie od wieku, doświadczenia czy celu
                 treningowego. Moi podopieczni często mówią, że podczas treningów
-                czują się wysłuchani, zaopiekowani i pewni, że są w dobrych
+                <span class="font-semibold">czują się wysłuchani, zaopiekowani</span> i pewni, że są w dobrych
                 rękach. I właśnie na tym mi zależy.
               </p>
 
@@ -584,7 +563,7 @@
 
           <div class="grid gap-8 mt-16 md:grid-cols-3">
             <div
-              class="text-center p-6 rounded-xl bg-background shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="text-center p-6 rounded-xl bg-background shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -610,7 +589,7 @@
             </div>
 
             <div
-              class="text-center p-6 rounded-xl bg-background shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="text-center p-6 rounded-xl bg-background shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -636,7 +615,7 @@
             </div>
 
             <div
-              class="text-center p-6 rounded-xl bg-background shadow-soft transition-smooth hover:shadow-elegant animate-scale-in"
+              class="text-center p-6 rounded-xl bg-background shadow-soft transition-smooth hover:shadow-elegant"
             >
               <div
                 class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center text-primary"
@@ -702,7 +681,7 @@
           </p>
 
           <div
-            class="bg-card p-12 rounded-xl shadow-elegant mb-12 animate-scale-in"
+            class="bg-card p-4 sm:p-12 rounded-xl shadow-elegant mb-12"
           >
             <h3 class="text-2xl font-semibold text-center mb-4">
               Zacznij inwestować w siebie - mądrze, spokojnie i skutecznie
@@ -711,7 +690,7 @@
               Twój ruch. Twoje tempo. Twoje miejsce.
             </p>
 
-            <div class="grid gap-6 md:grid-cols-2 mb-8">
+            <div class="grid md:grid-cols-2 mb-8">
               <a
                 href="tel:+48506204642"
                 class="flex items-center gap-4 p-6 rounded-xl bg-card no-underline text-inherit transition-smooth hover:bg-muted/50"
@@ -864,7 +843,7 @@
 
           <div
             id="formularz"
-            class="bg-card p-12 rounded-xl shadow-elegant animate-scale-in"
+            class="bg-card p-4 sm:p-12 rounded-xl shadow-elegant scroll-mt-20"
           >
             <h3 class="text-2xl font-semibold text-center mb-6">
               Formularz kontaktowy
@@ -920,7 +899,7 @@
                 ></textarea>
               </div>
               <input type="hidden" name="apiKey" value="sf_53bh9gfaec9kmdlgi1fbbk57" />
-              <input type="hidden" name="redirectTo" value="https://karotrenuje.pl/dziekuje" />
+              <input type="hidden" name="redirectTo" value="https://karotrenuje.pl/?dziekuje" />
               <button
                 type="submit"
                 class="inline-flex items-center justify-center rounded-xl font-medium transition-smooth cursor-pointer border-none no-underline font-inter bg-primary text-primary-foreground px-8 py-4 text-lg shadow-elegant hover:scale-105 hover:transition-duration-100 hover:transition-timing-function-linear hover:shadow-[0_15px_50px_-15px_rgba(228,76,143,0.3)] w-full"
