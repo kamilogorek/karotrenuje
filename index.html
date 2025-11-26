@@ -815,7 +815,11 @@
             <h3 class="text-2xl font-semibold text-center mb-6">
               Formularz kontaktowy
             </h3>
-            <form action="https://api.staticforms.dev/submit" method="POST">
+            <form
+              action="https://api.staticforms.dev/submit"
+              method="POST"
+              id="contact-form"
+            >
               <div class="mb-6">
                 <label for="name" class="block font-medium mb-2"
                   >Imię i nazwisko</label
@@ -866,18 +870,6 @@
                 ></textarea>
               </div>
 
-              <div class="mb-6">
-                <div
-                  class="g-recaptcha"
-                  data-sitekey="6LdUTBgsAAAAAIAsnGv0VxZ_IfcCjVRCEqmdvw3U"
-                ></div>
-              </div>
-              <script
-                src="https://www.google.com/recaptcha/api.js"
-                async
-                defer
-              ></script>
-
               <input
                 type="hidden"
                 name="apiKey"
@@ -906,6 +898,46 @@
         <p class="text-sm">&copy; 2026 Karolina Baran - Treningi Personalne</p>
       </div>
     </footer>
+
+    <script>
+      const RECAPTCHA_SITE_KEY = "6Le75hgsAAAAAKRg6jxZVKx--dS_7ZT7k4pV04xl";
+
+      function loadRecaptchaScript(callback) {
+        if (window.grecaptcha) {
+          callback();
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+        script.async = true;
+        script.defer = true;
+        script.onload = callback;
+        document.body.appendChild(script);
+      }
+
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          loadRecaptchaScript(() => {
+            grecaptcha.ready(() => {
+              grecaptcha
+                .execute(RECAPTCHA_SITE_KEY, {
+                  action: "contact_form",
+                })
+                .then((token) => {
+                  const input = document.createElement("input");
+                  input.type = "hidden";
+                  input.name = "g-recaptcha-response";
+                  input.value = token;
+                  e.target.appendChild(input);
+                  e.target.submit();
+                });
+            });
+          });
+        });
+    </script>
 
     <!-- Hello there! -->
   </body>
