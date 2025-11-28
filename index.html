@@ -6,9 +6,9 @@
     <title>Karolina Baran - Treningi Personalne Kraków | Be Fit Cracow</title>
     <meta
       name="description"
-      content="Trening personalny Kraków - indywidualne treningi z trenerką Karoliną w kameralnym studio Be Fit Cracow. Profesjonalne podejście i realne efekty."
+      content="Indywidualne treningi personalne w Krakowie z Karoliną Baran. Osiągnij swoje cele w kameralnym studio Be Fit Cracow. Umów trening już dziś!"
     />
-    <meta name="author" content="Karolina Baran - Personal Trainer" />
+    <meta name="author" content="Karolina Baran - Trener Personalny" />
     <meta
       property="og:title"
       content="Karolina Baran - Treningi Personalne Kraków"
@@ -21,7 +21,20 @@
     />
     <meta
       property="og:description"
-      content="Trening personalny Kraków - indywidualne treningi z trenerką Karoliną Baran w kameralnym studio Be Fit Cracow."
+      content="Indywidualne treningi personalne w Krakowie z Karoliną Baran. Osiągnij swoje cele w kameralnym studio Be Fit Cracow. Umów trening już dziś!"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Karolina Baran - Treningi Personalne Kraków"
+    />
+    <meta
+      name="twitter:description"
+      content="Indywidualne treningi personalne w Krakowie z Karoliną Baran. Osiągnij swoje cele w kameralnym studio Be Fit Cracow. Umów trening już dziś!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://karotrenuje.pl/images/og-image.jpg"
     />
 
     <link rel="canonical" href="https://karotrenuje.pl/" />
@@ -116,21 +129,20 @@
       class="relative flex items-center bg-card overflow-hidden py-24 md:py-40 min-h-screen"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          id="dziekuje"
-          class="p-4 mb-8 text-lg border border-border rounded-xl bg-primary text-primary-foreground opacity-80 shadow-elegant hidden"
-        >
-          <h2 class="text-xl">Dziękuję za Twoje zgłoszenie!</h2>
-          <p class="text-sm">
-            Formularz został pomyślnie wysłany. Skontaktuję się z Tobą tak
-            szybko, jak to możliwe, aby omówić szczegóły współpracy i kolejny
-            krok w drodze do Twojego celu.
-          </p>
-        </div>
-
+        <div id="dziekuje" class=""></div>
         <script>
           if (window.location.search.includes("dziekuje")) {
-            document.querySelector("#dziekuje")?.classList.remove("hidden");
+            const el = document.querySelector("#dziekuje");
+            if (el) {
+              el.innerHTML = `
+              <h2 class="text-xl">Dziękuję za Twoje zgłoszenie!</h2>
+              <p class="text-sm">
+                Formularz został pomyślnie wysłany. Skontaktuję się z Tobą tak
+                szybko, jak to możliwe, aby omówić szczegóły współpracy i kolejny
+                krok w drodze do Twojego celu.
+              </p>`;
+              el.className = `p-4 mb-8 text-lg border border-border rounded-xl bg-primary text-primary-foreground opacity-80 shadow-elegant`;
+            }
           }
         </script>
 
@@ -609,23 +621,27 @@
             <div class="grid gap-8 mt-16 md:grid-cols-4">
               <img
                 src="./assets/gym-1.jpg"
-                alt="Be Fit Cracow - Zdjęcie 1"
+                alt="Studio Be Fit Cracow – przestrzeń do treningów personalnych"
                 class="w-full h-full object-cover object-center rounded-xl shadow-elegant"
+                loading="lazy"
               />
               <img
                 src="./assets/gym-2.jpg"
-                alt="Be Fit Cracow - Zdjęcie 2"
+                alt="Studio Be Fit Cracow – przestrzeń do treningów personalnych"
                 class="w-full h-full object-cover object-center rounded-xl shadow-elegant"
+                loading="lazy"
               />
               <img
                 src="./assets/gym-3.jpg"
-                alt="Be Fit Cracow - Zdjęcie 3"
+                alt="Studio Be Fit Cracow – przestrzeń do treningów personalnych"
                 class="w-full h-full object-cover object-center rounded-xl shadow-elegant"
+                loading="lazy"
               />
               <img
                 src="./assets/gym-4.jpg"
-                alt="Be Fit Cracow - Zdjęcie 4"
+                alt="Studio Be Fit Cracow – przestrzeń do treningów personalnych"
                 class="w-full h-full object-cover object-center rounded-xl shadow-elegant"
+                loading="lazy"
               />
             </div>
           </div>
@@ -953,6 +969,54 @@
             });
           });
         });
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FitnessCenter",
+        "name": "Karolina Baran - Treningi Personalne Kraków",
+        "image": "https://karotrenuje.pl/images/og-image.jpg",
+        "description": "Indywidualne treningi personalne w Krakowie z Karoliną Baran. Osiągnij swoje cele w kameralnym studio Be Fit Cracow. Umów trening już dziś!",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Warmijska 1, 30-069 Kraków",
+          "addressLocality": "Kraków",
+          "postalCode": "30-069",
+          "addressCountry": "PL"
+        },
+        "telephone": "+48 506 204 642",
+        "url": "https://karotrenuje.pl/"
+        "sameAs": [
+          "https://www.instagram.com/karo.trenuje",
+          "https://www.facebook.com/karotrenuje"
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Dla kogo są treningi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dla osób w każdym wieku, które chcą poprawić sylwetkę, kondycję lub wrócić do formy po przerwie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gdzie odbywają się treningi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "W kameralnym studio Be Fit Cracow w Krakowie."
+            }
+          }
+        ]
+      }
     </script>
 
     <!-- Hello there! -->
